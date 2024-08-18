@@ -101,14 +101,14 @@
         .social-links li::after {
             content: attr(title); /* Использование атрибута title для подсказки */
             position: absolute;
-            bottom: -30px; /* Положение подсказки снизу */
+            bottom: -25px; /* Положение подсказки снизу */
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
+            background: transparent; /* Убираем фон */
             color: #fff;
-            padding: 5px 10px;
+            padding: 8px 15px; /* Паддинг для увеличения подсказки */
             border-radius: 5px;
-            font-size: 10.5px; /* Размер шрифта подсказки */
+            font-size: 14px; /* Размер шрифта подсказки */
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
