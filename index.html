@@ -170,7 +170,7 @@
 
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      const mailto = `mailto:${CONFIG.EMAIL}`;
+      const mailto = `${CONFIG.EMAIL}`;
       const setHref = (id, href) => { const el = document.getElementById(id); if (el) { el.href = href; el.target = '_blank'; el.rel = 'noreferrer'; } };
       setHref('email-link', mailto);
       setHref('email-link-2', mailto);
