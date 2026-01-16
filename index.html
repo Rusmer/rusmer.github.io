@@ -1,156 +1,227 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ru">
 <head>
-    <link rel="icon" href="https://i.imgur.com/YDKa9z5.png" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rusmers</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Days+One&display=swap">
-    <style>
-        /* Загрузочный экран */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="https://i.imgur.com/YDKa9z5.png" type="image/x-icon">
+  <title>Rusmer.github.io</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          boxShadow: {
+            fluent: "0 8px 30px rgba(0,0,0,0.25)",
+          },
+          borderRadius: {
+            '2.5xl': '1.25rem',
+          }
         }
-
-        .loading .spinner {
-            border: 8px solid rgba(0, 0, 0, 0.1);
-            border-left: 8px solid #fff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        body {
-            font-family: 'Days One', sans-serif;
-            background: url('https://i.imgur.com/b9g3ayH.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            transform: scale(0.7); /* Уменьшение всего сайта */
-            transform-origin: center;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .avatar {
-            width: 250px;
-            height: 250px;
-            margin-bottom: -75px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .avatar:hover {
-            transform: scale(1.1);
-        }
-
-        h1 {
-            margin-bottom: 10px;
-            font-size: 96px;
-            letter-spacing: 1.5px;
-        }
-
-        h2 {
-            margin-top: 20px;
-            font-size: 56px;
-        }
-
-        .social-links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: -20px;
-        }
-
-        .social-links li {
-            position: relative;
-            display: inline-block;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 64px;
-            padding: 15px;
-            display: inline-block;
-            transition: transform 0.3s ease, color 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px);
-            color: #d3d3d3;
-        }
-
-        .social-links li::after {
-            content: attr(title);
-            position: absolute;
-            bottom: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #fff;
-            padding: 5px 10px;
-            font-size: 18px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            z-index: 10;
-        }
-
-        .social-links li:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal-show { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
-<body>
-    <div class="loading">
-        <div class="spinner"></div>
+<body class="min-h-screen w-full text-white bg-[radial-gradient(90%_60%_at_10%_10%,rgba(99,102,241,0.25),transparent),radial-gradient(60%_60%_at_90%_10%,rgba(16,185,129,0.25),transparent),linear-gradient(180deg,#0b1020_0%,#090f1a_100%)]">
+  <script>
+    const CONFIG = {
+      AVATAR_URL: 'https://i.imgur.com/YDKa9z5.png',
+      NAME: 'Rusmers',
+      TAGLINE: 'Програмист, дизайнер • Frontend разработчик',
+      EMAIL: 'https://t.me/Rusmerss/',
+      LINKS: {
+        github: 'https://github.com/Rusmer',
+        website: 'https://Rusmer.github.io',
+      },
+      SKILLS: [
+        'React','TypeScript','Tailwind','Java','C++','Javascript'
+      ],
+      PROJECTS: [
+        { title: 'Глобальные проблемы земли', description: 'Сайт и карта с проблемами земли.', href: 'https://rusmer.github.io/GPE/' },
+        { title: 'Rusmer.github.io', description: 'Исходный код этого сайта.', href: 'https://github.com/Rusmer/rusmer.github.io' },
+        { title: 'Мой Modrinth', description: 'Мой Modrinth с модами на Minecraft.', href: 'https://modrinth.com/user/Rusmers' }
+      ]
+    };
+  </script>
+  <div class="sticky top-0 z-30 backdrop-blur-xl bg-white/5 supports-[backdrop-filter]:bg-white/5 border-b border-white/10">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="size-6 rounded-xl bg-white/10 border border-white/20 shadow-inner"></div>
+        <span class="font-semibold tracking-wide">Rusmer.github.io</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
+        <a href="#about" class="hover:opacity-100 transition-opacity">Обо мне</a>
+        <a href="#skills" class="hover:opacity-100 transition-opacity">Навыки</a>
+        <a href="#projects" class="hover:opacity-100 transition-opacity">Проекты</a>
+        <a href="#contact" class="hover:opacity-100 transition-opacity">Контакты</a>
+      </nav>
     </div>
-    <img src="https://i.imgur.com/YDKa9z5.png" alt="Your Avatar" class="avatar">
-    <h1>Rusmers</h1>
-    <h2>Just a socket</h2>
-    <ul class="social-links">
-        <li title="Telegram"><a href="https://t.me/Rusmerss/" class="telegram" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
-        <li title="Modrinth"><a href="https://modrinth.com/user/Rusmer" class="modrinth" target="_blank"><i class="fas fa-cube"></i></a></li>
-        <li title="Discord"><a href="https://discord.gg/zmhFPbvmhR" class="discord" target="_blank"><i class="fab fa-discord"></i></a></li>
-        <li title="GitHub"><a href="https://github.com/Rusmer/" class="github" target="_blank"><i class="fab fa-github"></i></a></li>
-    </ul>
-    <script>
-        window.addEventListener('load', () => {
-            document.querySelector('.loading').style.opacity = '0';
-            setTimeout(() => {
-                document.querySelector('.loading').style.display = 'none';
-                document.body.style.opacity = '1';
-            }, 500);
-        });
-    </script>
+  </div>
+
+  <header class="relative mx-auto max-w-6xl px-4 pt-14 pb-10">
+
+    <div class="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(60%_50%_at_50%_10%,black,transparent)]">
+      <div class="absolute inset-x-0 -top-24 h-64 blur-3xl opacity-60 bg-gradient-to-r from-indigo-500/40 via-cyan-400/30 to-emerald-400/30"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] items-center gap-8">
+
+      <div class="relative reveal">
+        <div class="relative size-36 md:size-40 rounded-[28px] p-[2px] bg-gradient-to-br from-white/60 via-white/20 to-white/10">
+          <div class="rounded-[26px] h-full w-full bg-white/5 border border-white/20 backdrop-blur-xl shadow-fluent overflow-hidden">
+            <img id="avatar-img" alt="Avatar" class="h-full w-full object-cover" loading="eager" />
+          </div>
+        </div>
+        <div class="absolute -bottom-3 -right-3 bg-white/10 border border-white/20 rounded-2xl px-2.5 py-1 text-xs backdrop-blur-md shadow">
+          <div class="inline-flex items-center gap-1">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-90"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3z"/></svg>
+            
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h1 id="name" class="text-3xl md:text-5xl font-semibold tracking-tight reveal">Ваше Имя</h1>
+        <p id="tagline" class="mt-3 text-base md:text-lg text-white/80 max-w-2xl reveal" style="transition-delay: .05s">Подпись</p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3 reveal" style="transition-delay: .1s">
+          <a id="email-link" class="group inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-white/10 border border-white/20 backdrop-blur-xl shadow hover:bg-white/15 transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <span>Написать мне</span>
+            <svg class="transition group-hover:translate-x-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+ 
+          <div class="flex items-center gap-2 ml-1">
+            <a id="github-link" aria-label="GitHub" class="rounded-xl p-2 bg-white/5 border border-white/15 hover:bg-white/10 backdrop-blur-xl">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="opacity-90"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.08 1.85 2.83 1.32 3.52 1 .11-.78.42-1.32.76-1.62-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.86.12 3.16.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.47 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .5Z"/></svg>
+            </a>
+            <a id="website-link" aria-label="Website" class="rounded-xl p-2 bg-white/5 border border-white/15 hover:bg-white/10 backdrop-blur-xl">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="mx-auto max-w-6xl px-4 pb-4">
+    <div class="reveal rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-fluent">
+      <h2 class="text-xl md:text-2xl font-semibold">Обо мне</h2>
+      <p class="mt-3 text-white/80 leading-relaxed">
+        Я создаю быстрый, чёткий код чтобы его понимал каждый. Люблю работать . Ниже - проекты.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills" class="mx-auto max-w-6xl px-4 pt-6 pb-4">
+    <div class="reveal rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-fluent">
+      <h2 class="text-xl md:text-2xl font-semibold">Навыки</h2>
+      <div id="skills-chips" class="mt-4 flex flex-wrap gap-2"></div>
+    </div>
+  </section>
+
+  <section id="projects" class="mx-auto max-w-6xl px-4 pt-6 pb-4">
+    <h2 class="sr-only">Проекты</h2>
+    <div id="projects-grid" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+  </section>
+
+  <section id="contact" class="mx-auto max-w-6xl px-4 pt-6 pb-10">
+    <div class="reveal rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-fluent">
+      <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 justify-between">
+        <div>
+          <h2 class="text-xl md:text-2xl font-semibold">Связаться</h2>
+          <p class="mt-2 text-white/80">Открыт для интересных задач и коллабораций.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <a id="email-link-2" class="group inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-white/10 border border-white/20 backdrop-blur-xl shadow hover:bg-white/15 transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <span>Написать</span>
+            <svg class="transition group-hover:translate-x-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a id="portfolio-link" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-white/5 border border-white/15 hover:bg-white/10 backdrop-blur-xl">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg>
+            <span>Портфолио</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="mx-auto max-w-6xl px-4 pb-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 text-sm text-white/70 flex flex-col md:flex-row items-center justify-between gap-3">
+      <span id="copyright">© <span id="year"></span> <span id="name-mini"></span>. Сделано в стиле Fluent Win3UI (Microsoft).</span>
+      <div class="opacity-80">Собрано на HTML + Tailwind</div>
+    </div>
+  </footer>
+
+  <script>
+
+    (function init() {
+
+      document.getElementById('avatar-img').src = CONFIG.AVATAR_URL;
+
+
+      document.getElementById('name').textContent = CONFIG.NAME;
+      document.getElementById('name-mini').textContent = CONFIG.NAME;
+      document.getElementById('tagline').textContent = CONFIG.TAGLINE;
+
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const mailto = `${CONFIG.EMAIL}`;
+      const setHref = (id, href) => { const el = document.getElementById(id); if (el) { el.href = href; el.target = '_blank'; el.rel = 'noreferrer'; } };
+      setHref('email-link', mailto);
+      setHref('email-link-2', mailto);
+      setHref('cv-link', CONFIG.LINKS.cv);
+      setHref('github-link', CONFIG.LINKS.github);
+      setHref('linkedin-link', CONFIG.LINKS.linkedin);
+      setHref('website-link', CONFIG.LINKS.website);
+      setHref('portfolio-link', CONFIG.LINKS.website);
+
+      const skillsWrap = document.getElementById('skills-chips');
+      CONFIG.SKILLS.forEach(s => {
+        const span = document.createElement('span');
+        span.className = 'rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl px-3 py-1 text-sm text-white/90';
+        span.textContent = s;
+        skillsWrap.appendChild(span);
+      });
+
+
+      const grid = document.getElementById('projects-grid');
+      CONFIG.PROJECTS.forEach((p, i) => {
+        const a = document.createElement('a');
+        a.href = p.href || '#';
+        a.target = '_blank'; a.rel = 'noreferrer';
+        a.className = 'reveal group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 md:p-6 shadow-fluent block';
+        a.style.transitionDelay = (0.05 * (i + 1)) + 's';
+        a.innerHTML = `
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-lg font-semibold">${p.title}</h3>
+              <p class="mt-2 text-sm text-white/80">${p.description}</p>
+            </div>
+            <div class="rounded-2xl border border-white/15 bg-white/10 px-2 py-1 text-xs opacity-90">ㅤ</div>
+          </div>
+          <div class="mt-4 inline-flex items-center gap-2 text-sm opacity-90">
+            <span>Открыть</span>
+            <svg class="transition group-hover:translate-x-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>`;
+        grid.appendChild(a);
+      });
+
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('reveal-show');
+            observer.unobserve(e.target);
+          }
+        })
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
 </body>
 </html>
